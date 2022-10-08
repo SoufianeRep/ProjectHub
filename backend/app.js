@@ -33,10 +33,10 @@ const fileFilter = (req, file, cb) => {
   if (type === 'video') {
     cb(null, true);
   } else {
-    cb(err);
+    cb(new Error('File is not of the correct type'), false);
   }
 };
-const upload = multer({ storage: storage });
+const upload = multer({ storage, fileFilter });
 
 // Post request for the file upload
 app.post('/upload', upload.single('file'), (req, res, next) => {

@@ -30,4 +30,5 @@ yarn-error.log*
 
 # Files
 *.mp4
+*.doc
 /backend/temp/uploads
